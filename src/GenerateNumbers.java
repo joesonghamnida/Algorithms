@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by joe on 12/2/16.
@@ -41,5 +42,16 @@ public class GenerateNumbers {
             check = false;
         }
         return check;
+    }
+
+    public static ArrayList<Integer> integersRandomSet(int min, int max, int size){
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        Random random = new Random();
+        for (int i = min; i < size; i ++){
+            numbers.add(random.nextInt(max));
+        }
+
+        return numbers;
     }
 }

@@ -42,7 +42,21 @@ public class GenerateNumbersTests {
         ArrayList<Integer> listOfNumbers = GenerateNumbers.integersFullSet(0,5);
         Assert.assertTrue(listOfNumbers.size()==5);
 
+        ArrayList<Integer> listOfNumbers2 = GenerateNumbers.integersFullSet(0,500);
+        Assert.assertTrue(listOfNumbers2.size()==500);
+        System.out.println(listOfNumbers2.get(499));
+        Assert.assertTrue(listOfNumbers2.get(499)==499);
+
         ArrayList<Integer> listOfNumbersStepping = GenerateNumbers.integersStepping(0,5, 2);
         Assert.assertTrue(listOfNumbersStepping.size()==3);
+        System.out.println(listOfNumbersStepping);
+        Assert.assertTrue(listOfNumbersStepping.get(2)==4);
+    }
+
+    @Test
+    public void GenerateListOfRandomNumbers(){
+        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersRandomSet(0, 5, 5);
+        Assert.assertTrue(listOfNumbers.size() == 5);
+        System.out.println(listOfNumbers);
     }
 }

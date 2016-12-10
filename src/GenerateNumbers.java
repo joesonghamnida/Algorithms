@@ -54,4 +54,15 @@ public class GenerateNumbers {
 
         return numbers;
     }
+
+    public static Integer[] integersFullArray(int min, int max){
+        Integer[] numbers = new Integer[max - min];
+        ArrayList<Integer> numbersToLoad = integersFullSet(min, max);
+
+        for(int i = 0 ;i < max; i++){
+            numbers[i] = numbersToLoad.get(i);
+        }
+
+        return numbers;
+    }
 }

@@ -8,6 +8,10 @@ import java.util.ArrayList;
  */
 public class GenerateNumbersTests {
 
+    public static final int MIN = 0;
+    public static final int MAX_ONE = 5;
+    public static final int MAX_TWO = 500;
+
     @Test
     public void checkEvenNumbers(){
         Assert.assertTrue(GenerateNumbers.checkEven(0));
@@ -39,15 +43,15 @@ public class GenerateNumbersTests {
 
     @Test
     public void GenerateAListOfNumbers(){
-        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersFullSet(0,5);
+        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersFullSet(MIN,MAX_ONE);
         Assert.assertTrue(listOfNumbers.size()==5);
 
-        ArrayList<Integer> listOfNumbers2 = GenerateNumbers.integersFullSet(0,500);
-        Assert.assertTrue(listOfNumbers2.size()==500);
+        ArrayList<Integer> listOfNumbers2 = GenerateNumbers.integersFullSet(MIN,MAX_TWO);
+        Assert.assertTrue(listOfNumbers2.size()==MAX_TWO);
         System.out.println(listOfNumbers2.get(499));
         Assert.assertTrue(listOfNumbers2.get(499)==499);
 
-        ArrayList<Integer> listOfNumbersStepping = GenerateNumbers.integersStepping(0,5, 2);
+        ArrayList<Integer> listOfNumbersStepping = GenerateNumbers.integersStepping(MIN,MAX_ONE, 2);
         Assert.assertTrue(listOfNumbersStepping.size()==3);
         System.out.println(listOfNumbersStepping);
         Assert.assertTrue(listOfNumbersStepping.get(2)==4);
@@ -55,8 +59,20 @@ public class GenerateNumbersTests {
 
     @Test
     public void GenerateListOfRandomNumbers(){
-        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersRandomSet(0, 5, 5);
+        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersRandomSet(MIN, MAX_ONE, 5);
         Assert.assertTrue(listOfNumbers.size() == 5);
         System.out.println(listOfNumbers);
+    }
+
+    @Test public void GenerateNumberArrays(){
+        ArrayList<Integer> listOfNumbers = GenerateNumbers.integersFullSet(MIN,MAX_ONE);
+        Assert.assertTrue(listOfNumbers.size()==MAX_ONE);
+        Integer[] arrayToTest = GenerateNumbers.integersFullArray(MIN, MAX_ONE);
+        Assert.assertTrue((arrayToTest.length == MAX_ONE));
+
+        ArrayList<Integer> listOfNumbers2 = GenerateNumbers.integersFullSet(MIN,MAX_TWO);
+        Assert.assertTrue(listOfNumbers2.size()==MAX_TWO);
+        Integer[] arrayToTest2 = GenerateNumbers.integersFullArray(MIN, MAX_TWO);
+        Assert.assertTrue((arrayToTest2.length == MAX_TWO));
     }
 }
